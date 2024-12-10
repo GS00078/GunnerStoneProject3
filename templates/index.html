@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Life Expectancy Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            max-width: 400px;
+            width: 100%;
+        }
+        input[type="text"] {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Life Expectancy Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <input type='text' name="Adult_Mortality" placeholder="Adult Mortality" required="required" />
+        <input type='text' name="infant_deaths" placeholder="Infant Deaths" required="required" />
+        <input type='text' name="Alcohol" placeholder="Alcohol" required="required" />
+        <input type='text' name="percentage_expenditure" placeholder="Percentage Expenditure" required="required" />
+        <input type='text' name="Hepatitis_B" placeholder="Hepatitis B" required="required" />
+        <input type='text' name="Measles" placeholder="Measles" required="required" />
+        <input type='text' name="BMI" placeholder="BMI" required="required" />
+        <input type='text' name="under_five_deaths" placeholder="Under-Five Deaths" required="required" />
+        <input type='text' name="Polio" placeholder="Polio" required="required" />
+        <input type='text' name="Total_expenditure" placeholder="Total Expenditure" required="required" />
+        <input type='text' name="Diphtheria" placeholder="Diphtheria" required="required" />
+        <input type='text' name="HIV_AIDS" placeholder="HIV/AIDS" required="required" />
+        <input type='text' name="GDP" placeholder="GDP" required="required" />
+        <input type='text' name="Population" placeholder="Population" required="required" />
+        <input type='text' name="thinness_1_19_years" placeholder="Thinness 1-19 Years" required="required" />
+        <input type='text' name="thinness_5_9_years" placeholder="Thinness 5-9 Years" required="required" />
+        <input type='text' name="Income_composition_of_resources" placeholder="Income Composition of Resources" required="required" />
+        <input type='text' name="Schooling" placeholder="Schooling" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <h2>The predicted life expectancy is: {{ predicted_text }}</h2>
+</body>
+</html>
